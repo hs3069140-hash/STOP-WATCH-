@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 
 .brand {
@@ -59,7 +59,7 @@
   width: min(100%, 640px);
   margin: 60px auto 46px;
   padding: 34px 42px 32px;
-  border: 1px solid #273139;
+  border: 1px solid #392730;
   border-radius: 18px;
   background:
     radial-gradient(ellipse at 50% 38%, rgba(32, 48, 54, 0.31), transparent 54%),
@@ -236,6 +236,101 @@
   cursor: not-allowed;
 }
 
+.runner-section {
+  margin-top: 30px;
+  padding: 17px 19px 12px;
+  border: 1px solid #29363a;
+  border-radius: 12px;
+  background: rgba(10, 18, 20, 0.38);
+}
+
+.runner-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.runner-heading h2 {
+  margin: 0;
+  color: #dce2de;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.runner-heading > span {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.runner-step-total {
+  color: #718085;
+}
+
+.runner-track {
+  position: relative;
+  height: 112px;
+  margin: 1px 1px 0;
+}
+
+.track-loop {
+  position: absolute;
+  inset: 12% 7%;
+  border: 1px dashed #3a4948;
+  border-radius: 50%;
+}
+
+.track-marker {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #4a5857;
+  border-radius: 50%;
+  background: #1b2427;
+  transform: translate(-50%, -50%);
+  transition: background 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.track-marker.is-complete {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(163, 225, 190, 0.4);
+}
+
+.runner-person {
+  position: absolute;
+  z-index: 1;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #496353;
+  border-radius: 50%;
+  background: #20352d;
+  color: var(--accent);
+  box-shadow: 0 0 16px rgba(163, 225, 190, 0.12);
+  transition: left 450ms cubic-bezier(0.2, 0.75, 0.3, 1), top 450ms cubic-bezier(0.2, 0.75, 0.3, 1), transform 450ms ease;
+}
+
+.runner-person svg {
+  width: 19px;
+  height: 19px;
+  overflow: visible;
+}
+
+.runner-person.is-jogging {
+  animation: jog 420ms ease-in-out infinite alternate;
+}
+
+.runner-caption {
+  margin: 0;
+  color: #7e8b8e;
+  font-size: 10px;
+  text-align: center;
+}
+
 .laps-section {
   margin-top: 38px;
   border-top: 1px solid var(--line);
@@ -361,6 +456,12 @@
   }
 }
 
+@keyframes jog {
+  to {
+    margin-top: -3px;
+  }
+}
+
 @media (max-width: 600px) {
   .app-shell {
     width: min(100% - 32px, 480px);
@@ -414,6 +515,16 @@
     min-width: 104px;
   }
 
+  .runner-section {
+    margin-top: 25px;
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .runner-track {
+    height: 96px;
+  }
+
   .laps-section {
     margin-top: 30px;
   }
@@ -435,5 +546,9 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .runner-person.is-jogging {
+    animation: none;
   }
 }
