@@ -1,0 +1,439 @@
+.app-shell {
+  width: min(100% - 48px, 1080px);
+  min-height: 100svh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #303b43;
+  border-radius: 10px;
+  color: var(--accent);
+}
+
+.brand-mark svg {
+  width: 19px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.brand-light {
+  color: var(--accent);
+}
+
+.topbar-label,
+.footer {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.stopwatch-card {
+  width: min(100%, 640px);
+  margin: 60px auto 46px;
+  padding: 34px 42px 32px;
+  border: 1px solid #273139;
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(32, 48, 54, 0.31), transparent 54%),
+    var(--surface);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+}
+
+.card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+}
+
+.card-heading h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  padding: 7px 11px;
+  border: 1px solid #303b43;
+  border-radius: 999px;
+  color: #a1abb0;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #69767a;
+}
+
+.status-pill.is-running .status-dot {
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(163, 225, 190, 0.65);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-pill.is-running {
+  color: var(--accent);
+}
+
+.timer-wrap {
+  padding: 58px 0 42px;
+  text-align: center;
+}
+
+.timer-display {
+  color: #f0f3f0;
+  font-family: var(--mono);
+  font-size: clamp(46px, 9.2vw, 76px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.timer-caption {
+  margin: 16px 0 0;
+  color: #69777c;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.timer-caption span {
+  margin: 0 5px;
+  color: #39454a;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
+
+.button {
+  min-width: 114px;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.button svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.button-primary {
+  min-width: 138px;
+  background: var(--accent);
+  color: #13201b;
+}
+
+.button-primary:hover {
+  background: #b8ebcb;
+}
+
+.button-pause {
+  background: #263a33;
+  color: var(--accent);
+}
+
+.button-pause:hover {
+  background: #30483e;
+}
+
+.button-secondary {
+  border-color: #354148;
+  background: #202a30;
+  color: #d9dfdc;
+}
+
+.button-secondary:hover:not(:disabled) {
+  border-color: #50605f;
+  background: #27343a;
+}
+
+.button-quiet {
+  min-width: 100px;
+  background: transparent;
+  color: #929da0;
+}
+
+.button-quiet:hover:not(:disabled) {
+  background: #222c31;
+  color: #e1e6e2;
+}
+
+.button:disabled {
+  color: #586368;
+  cursor: not-allowed;
+}
+
+.laps-section {
+  margin-top: 38px;
+  border-top: 1px solid var(--line);
+}
+
+.laps-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 0 15px;
+}
+
+.laps-heading h2 {
+  margin: 0;
+  color: #dce2de;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.lap-count {
+  color: #718085;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.empty-state {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #869297;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #303b40;
+  border-radius: 50%;
+  color: #81918c;
+}
+
+.empty-icon svg {
+  width: 19px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+}
+
+.empty-state p {
+  margin: 0 0 5px;
+  color: #bbc3bf;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.empty-state > span:last-child {
+  font-size: 11px;
+}
+
+.lap-list {
+  max-height: 230px;
+  overflow-y: auto;
+  scrollbar-color: #46534f transparent;
+  scrollbar-width: thin;
+}
+
+.lap-row {
+  min-height: 46px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgba(49, 61, 66, 0.65);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.lap-number {
+  color: #8d999d;
+  font-family: var(--sans);
+  font-size: 11px;
+}
+
+.lap-split {
+  color: #dce2de;
+}
+
+.lap-total {
+  color: #8d999d;
+  text-align: right;
+}
+
+.lap-latest {
+  min-width: 43px;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+
+.footer {
+  width: min(100%, 640px);
+  display: flex;
+  justify-content: space-between;
+  margin: auto auto 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 9px;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    width: min(100% - 32px, 480px);
+  }
+
+  .topbar {
+    height: 70px;
+  }
+
+  .topbar-label {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .stopwatch-card {
+    margin: 34px auto 34px;
+    padding: 27px 20px 24px;
+    border-radius: 15px;
+  }
+
+  .timer-wrap {
+    padding: 54px 0 38px;
+  }
+
+  .timer-display {
+    font-size: clamp(38px, 10vw, 56px);
+  }
+
+  .timer-caption {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+  }
+
+  .timer-caption span {
+    margin: 0 2px;
+  }
+
+  .controls {
+    gap: 6px;
+  }
+
+  .button {
+    min-width: 0;
+    min-height: 44px;
+    gap: 6px;
+    padding: 0 13px;
+    font-size: 12px;
+  }
+
+  .button-primary {
+    min-width: 104px;
+  }
+
+  .laps-section {
+    margin-top: 30px;
+  }
+
+  .lap-row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .lap-latest {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
